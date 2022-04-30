@@ -1,8 +1,8 @@
 package com.example.grocerryapp
-
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), GroceryRVAdapter.GroceryItemClickInter
         val groceryRepository = GroceryRepository(GroceryDatabase(this))
         val factory = GroceryViewModelFactory(groceryRepository)
         groceryViewModel = ViewModelProvider(this,factory).get(GroceryViewModel::class.java)
-        groceryViewModel.getAllGroceryItems().observe(this,{
+        groceryViewModel.getAllGroceryItems().observe(this ,{
             groceryRVAdapter.list = it
             groceryRVAdapter.notifyDataSetChanged()
         })
