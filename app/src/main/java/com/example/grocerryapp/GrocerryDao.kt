@@ -7,10 +7,10 @@ import androidx.room.*
 interface GrocerryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(item:GroceryItems)
+     fun insert(item:GroceryItems)
 
     @Delete
-    suspend fun delete(item:GroceryItems)
+    fun delete(item:GroceryItems)
 
     @Query("SELECT * FROM grocerry_item")
     fun getAllGroceryItems(): LiveData<List<GroceryItems>>
